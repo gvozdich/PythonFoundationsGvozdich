@@ -4,7 +4,7 @@ This code allows users to modify a dictionary of individuals, username pairs by 
 The user can also query the database for individuals by name or username
 """
 
-# function print menu to user prior to prompting for input
+#def print_menu`
 def print_menu():
     print('1. Print Users')
     print('2. Add a User')
