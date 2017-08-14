@@ -4,7 +4,7 @@ This code allows users to modify a dictionary of individuals, username pairs by 
 The user can also query the database for individuals by name or username
 """
 
-#def print_menu`
+# function print menu to user prior to prompting for input
 def print_menu():
     print('1. Print Users')
     print('2. Add a User')
@@ -61,7 +61,8 @@ while menu_choice != 5:
     if menu_choice == 1:
         print("Current Users:")
         for x, y in usernames.items():
-            print("Name: {} \tUser Name: {} \n".format(x, y))
+            print("Name: {} \tUser Name: {}".format(x, y))
+        print('')
 
     # add an entry
     elif menu_choice == 2:
@@ -75,11 +76,14 @@ while menu_choice != 5:
         print("Remove User")
         name = input("Name or Username: ")
         #compare key and value to user input to delete entry by individual or username
+        count = len(usernames)
         for key, value in usernames.items():
             if name == key or name == value:
                 print("Name: {}, User Name: {} has been removed\n".format(key, usernames[key]))
                 del usernames[key]
                 break
+        if len(usernames) == count:
+            print("No name or username was found for {}\n".format(name))
 
     # view user name
     elif menu_choice == 4:
@@ -87,10 +91,12 @@ while menu_choice != 5:
         name = get_name()
         #check if name already exists in dictionary
         if name in usernames:
-            print("{}'s username is: {}".format(name, usernames[name]))
+            print("{}'s username is {}\n".format(name, usernames[name]))
         else:
-            print("Username for {} was not found.".format(name))
+            print("Username for {} was not found\n".format(name))
 
     # is user enters something strange, show them the menu
     elif menu_choice != 5:
         print_menu()
+
+print("Goodbye!\n")
